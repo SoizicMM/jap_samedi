@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backoffice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!---------------->
+  <!--- HEADER ----->
+  <!---------------->
+  <header class="bg-pink-200 p-10 flex justify-between">
+    <!-- logo + titre -->
+    <div class="flex space-x-4">
+      <a href="/"><img src="../static/images/logo.png" alt="logo"></a>
+      <h1 class="text-3xl font-semibold">Administration</h1>
+    </div>
+    <!-- menu de connexion -->
+    <nav>
+      <ul class="flex space-x-10 text-xl font-semibold">
+        <li class="hover:text-pink-400"><a href="/">Revenir sur le site</a></li>  
+        <li class="hover:text-pink-400"><a href="/">Se déconnecter</a></li>
+        </ul>
+    </nav>
+  </header>
+  <!------------------------->
+  <!--- MENU CATEGORIES ----->
+  <!------------------------->
+  <nav class="bg-gray-800 text-white pl-6 py-4">
+    <ul class="flex space-x-6 text-xl font-semibold">
+      <li class="hover:text-pink-400"><a href="/">Utilisateurs</a></li>
+      <li class="hover:text-pink-400"><a href="/">Commentaires</a></li>
+      <li class="hover:text-pink-400"><a href="/">Lieux</a></li>
+      <li class="hover:text-pink-400"><a href="/">Les cafés à thème</a></li>
+      <li class="hover:text-pink-400"><a href="/">Les évènements</a></li>
+    </ul>
+  </nav>
+  
+<main class="p-6">
+{% block content %}
+
+{% endblock %}
+</main>
+  
+  <!---------------->
+  <!--- FOOTER ----->
+  <!---------------->
+  <footer class="bg-pink-200 p-6 text-center font-semibold">
+    <p>Copyright&copy; : Truchmuch</p>
+  </footer>
+</body>
+  </html>

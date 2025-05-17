@@ -1,0 +1,7 @@
+gunicorn
+flask
+requests
+jinja2
+pymongo
+dnspython
+bcrypt

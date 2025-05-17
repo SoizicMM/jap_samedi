@@ -1,0 +1,19 @@
+{% extends 'front/base.html' %}
+
+<!------------------------->
+<!--- CORPS DE PAGE ------->
+<!------------------------->
+{% block content %}
+<main class="p-6">
+  <section class="text-center p-6 border-2 border-pink-200 rounded-xl">
+    <h2 class="text-3xl text-pink-400 font-semibold border-b-2 border-pink-200 pb-4">{{lieu['titre']}}</h2>
+    <div class="flex justify-center">
+    <img src="{{lieu['img']}}" class="pt-2">
+    </div>
+    <p class="2xl:text-lg py-6">{{lieu['intro']}}</p>
+    <p class="2xl:text-lg">{{lieu['description']}}</p>
+  </section>
+
+</main>
+{% endblock %}
+

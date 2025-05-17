@@ -1,0 +1,36 @@
+{% extends 'admin/back_base.html' %}
+
+{% block content %}
+<!-- BOUTON NOUVEAU LIEU -->
+<div class="flex justify-end">
+<a href="/nouveau_lieu">
+<button class="bg-fuchsia-300 hover:bg-fuchsia-400 py-2 px-4 rounded-md shadow-md mb-4 font-semibold">Ajouter un nouveau lieu</button>
+</a>
+</div>
+<!-- SECTION DES LIEUX -->
+<section class="flex justify-center">
+  <table class="border-collapse border border-slate-400">
+    <thead>
+      <tr>
+        <th class="border border-slate-300 p-2">Titre</th>
+        <th class="border border-slate-300 p-2">Image</th>
+        <th class="border border-slate-300 p-2">Intro</th>
+        <th class="border border-slate-300 p-2">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lieu in lieux %}
+      <tr>
+        <td class="border border-slate-300 p-2">{{lieu['titre']}}</td>
+        <td class="border border-slate-300 p-2"><img src="{{lieu['img']}}" class="pt-2"></td>
+        <td class="border border-slate-300 p-2">{{lieu['intro']}}</td>
+        <td class="border border-slate-300 p-2">{{lieu['description']}}</td>
+        <td class="border border-slate-300 p-2"><a href="/lieux/{{lieu['_id']}}" target="_blank">Voir</a></td>
+        <td class="border border-slate-300 p-2"><a href="/update_lieu/{{lieu['_id']}}">Modifier</a></td>
+        <td class="border border-slate-300 p-2"><a href="/delete_lieu/{{lieu['_id']}}">Supprimer</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'front/base.html' %}
+
+<!------------------------->
+<!--- CORPS DE PAGE ------->
+<!------------------------->
+{% block content %}
+<main class="p-6">
+  <!-- SECTION DES EVENEMENTS -->
+  <section class="p-6 border-2 border-pink-200 rounded-xl">
+    <h2 class="text-3xl font-semibold text-center border-b-2 border-pink-200 pb-4">Les évènements</h2>
+    <!-- ARTICLES -->
+    {% for evenement in evenements %}
+    <article class="grid grid-cols-3 pt-4 pb-6">
+      <img src="{{evenement['img']}}" class="pt-2">
+      <div class="col-span-2 pl-6 pt-4">
+        <a href="/evenements/{{evenement['_id']}}"><h3 class="text-lg 2xl:text-xl font-semibold hover:text-pink-400">{{evenement['titre']}}</h3></a>
+        <p class="2xl:text-lg py-6">{{evenement['intro']}}</p>
+        <p class="2xl:text-lg">{{evenement['description']}}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+
+</main>
+{% endblock %}

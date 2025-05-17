@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!---------------->
+  <!--- HEADER ----->
+  <!---------------->
+  <header class="bg-pink-200 p-10 flex justify-between">
+    <!-- logo + titre -->
+    <div class="flex space-x-4">
+      <a href="/"><img src="static/images/logo.png" alt="logo"></a>
+      <h1 class="text-3xl font-semibold">Administration</h1>
+    </div>
+    <!-- menu de connexion -->
+    <nav>
+      <ul class="flex space-x-10 text-xl font-semibold">
+        <li class="hover:text-pink-400"><a href="/">Revenir sur le site</a></li>  
+        <li class="hover:text-pink-400"><a href="/">Se déconnecter</a></li>
+        </ul>
+    </nav>
+  </header>
+  <!------------------------->
+  <!--- MENU CATEGORIES ----->
+  <!------------------------->
+  <nav class="bg-gray-800 text-white pl-6 py-4">
+    <ul class="flex space-x-6 text-xl font-semibold">
+      <li class="hover:text-pink-400"><a href="/">Utilisateurs</a></li>
+      <li class="hover:text-pink-400"><a href="/">Commentaires</a></li>
+      <li class="hover:text-pink-400"><a href="/">Lieux</a></li>
+      <li class="hover:text-pink-400"><a href="/">Les cafés à thème</a></li>
+      <li class="hover:text-pink-400"><a href="/">Les évènements</a></li>
+    </ul>
+  </nav>
+  <!-------------------->
+  <!--- LES TABLEAUX --->
+  <!-------------------->
+  <main class="p-6">
+    <!-- TABLEAU UTILISATEURS -->
+    <section class="flex justify-center">
+      <table class="border-collapse border border-slate-400">
+        <thead>
+          <tr>
+            <th class="border border-slate-300 p-2">Pseudo</th>
+            <th class="border border-slate-300 p-2">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for lieu in lieux %}
+            <td class="border border-slate-300 p-2">Xxxxxxxxxxx</td>
+            <td class="border border-slate-300 p-2">Utilisateurs</td>
+            <td class="border border-slate-300 p-2"><a href="/">Voir</a></td>
+            <td class="border border-slate-300 p-2"><a href="/">Modifier</a></td>
+            <td class="border border-slate-300 p-2"><a href="/">Supprimer</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    <!-- TABLEAU LIEUX -->
+    <section class="flex justify-center">
+      <table class="border-collapse border border-slate-400">
+        <thead>
+          <tr>
+            <th class="border border-slate-300 p-2">Titre</th>
+            <th class="border border-slate-300 p-2">Image</th>
+            <th class="border border-slate-300 p-2">Intro</th>
+            <th class="border border-slate-300 p-2">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for lieu in lieux %}
+          <tr>
+            <td class="border border-slate-300 p-2">{{lieu['titre']}}</td>
+            <td class="border border-slate-300 p-2"><img src="{{lieu['img']}}" class="pt-2"></td>
+            <td class="border border-slate-300 p-2">{{lieu['intro']}}</td>
+            <td class="border border-slate-300 p-2">{{lieu['description']}}</td>
+            <td class="border border-slate-300 p-2"><a href="/">Voir</a></td>
+            <td class="border border-slate-300 p-2"><a href="/">Modifier</a></td>
+            <td class="border border-slate-300 p-2"><a href="/">Supprimer</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <!---------------->
+  <!--- FOOTER ----->
+  <!---------------->
+  <footer class="bg-pink-200 p-6 text-center font-semibold">
+    <p>Copyright&copy; : Truchmuch</p>
+  </footer>
+</body>
+</html>

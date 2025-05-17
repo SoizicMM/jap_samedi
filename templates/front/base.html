@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+
+</head>
+<body>
+  <!---------------->
+  <!--- HEADER ----->
+  <!---------------->
+  <header class="bg-pink-200 p-10 flex justify-between">
+    <!-- logo + titre -->
+    <div class="flex space-x-4">
+      <a href="/"><img src="../static/images/logo.png" alt="logo"></a>
+      <h1 class="text-3xl font-semibold">Le Japon</h1>
+    </div>
+    <!-- menu de connexion -->
+    <nav>
+      <ul class="flex space-x-6 text-xl font-semibold">
+        {% if session['util'] %}
+          <li><a href="/logout" class="active">Se déconnecter</a></li>
+        {% else %}
+        <li class="hover:text-pink-400"><a href="/login">Se connecter</a></li>  
+        <li class="hover:text-pink-400"><a href="/register">S'enregistrer</a></li>
+        {% endif %}
+        </ul>
+    </nav>
+  </header>
+  <!---------------------------->
+  <!--- MENU DES CATEGORIES----->
+  <!---------------------------->
+  <section class="flex justify-between bg-zinc-300">
+  <nav class="bg-zinc-300 pl-6 py-4">
+    <ul class="flex space-x-6 text-xl font-semibold">
+      <li class="hover:text-pink-400"><a href="/lieux">Lieux</a></li>
+      <li class="hover:text-pink-400"><a href="/cafes">Les cafés à thème</a></li>
+      <li class="hover:text-pink-400"><a href="/evenements">Les évènements</a></li>
+    </ul>
+  </nav>
+  <!---------------------------->
+  <!--- barre de recherche ----->
+  <!---------------------------->
+    <form action="/recherche" method="post" class="pr-6 pt-2">
+        <input type="text" name="query" placeholder="Entrez votre recherche">
+        <input type="submit" value="Rechercher">
+    </form>
+  </section>
+
+
+  {% block content %}
+
+  {% endblock %}
+
+
+  <!---------------->
+  <!--- FOOTER ----->
+  <!---------------->
+  <footer class="bg-pink-200 p-6 text-center font-semibold">
+    <p>Copyright&copy; : Truchmuch</p>
+  </footer>
+</body>
+</html>
